@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { UserAuthContext } from "../Contexts/UserAuth";
+import loginImg from "../images/login.png"
+
 
 function Login() {
+let {isLoggedIn, setIsLoggedIn }=useContext(UserAuthContext)
+
+
+
   const {
     register,
     reset,
@@ -14,9 +21,14 @@ function Login() {
     console.log(data);
     reset();
   };
+
   const navigate = useNavigate();
   const handleClick = () => {
     navigate("/sign");
+  };
+  const handleCl = () => {
+    setIsLoggedIn(true);
+    navigate("/products"); 
   };
 
   return (
@@ -67,6 +79,7 @@ function Login() {
             </div>
 
             <button
+            onClick={handleCl}
               type="submit"
               className="w-full py-2 text-white bg-gray-800 rounded-md hover:bg-gray-950"
             >
@@ -85,7 +98,7 @@ function Login() {
 
         
         <div className="hidden md:flex md:w-1/2 items-center justify-center bg-gray-800 rounded-r-lg">
-          <img src="../../login.png" alt="This may not uploaded correctly" />
+          <img src={loginImg} alt="This may not uploaded correctly" />
         </div>
       </div>
     </div>

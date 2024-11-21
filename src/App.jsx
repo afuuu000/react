@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import CardApp from "./Components/CardApp";
 import Home from "./Pages/Home";
 import Navbar from "./Components/Navbar";
@@ -10,12 +10,17 @@ import Login from "./Pages/Login";
 import ProductDetails from "./Pages/ProductDetails";
 import PrivateRoute from "./Components/PrivateRoute";
 import Category from "./Pages/Category";
+import UserAuthContextProvider from "./Contexts/UserAuth";
+
+
+
 
 function App() {
   
   return (
     <>
-    <Navbar/>
+ <UserAuthContextProvider>   
+  <Navbar/>
     <Routes>
       <Route path="/" element={<Home />}/>
       <Route path="/products/:categoryName?" element={<PrivateRoute> <Products /> </PrivateRoute>}/>
@@ -24,6 +29,9 @@ function App() {
       <Route path="ProductDetails/:id" element={<ProductDetails />}/>
       <Route path="/category" element={<Category />}></Route>
     </Routes>
+    </UserAuthContextProvider>
+ 
+
     </>
   );
 }

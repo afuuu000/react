@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import loginImg from "../images/login.png"
 
 function SignUp() {
   const {
@@ -22,7 +23,7 @@ function SignUp() {
     <div className="flex h-screen items-center justify-center bg-slate-400">
       <div className="flex flex-col md:flex-row w-full max-w-4xl rounded-r-lg shadow-lg bg-white ">
         <div className=" md:block md:w-1/2 bg-gray-800 rounded-r-lg p-6">
-            <img src="../../login.png" alt="This may not uploaded correctly" />
+            <img src={loginImg} alt="This may not uploaded correctly" />
         </div>
         <div className="w-full md:w-1/2 p-6">
           <h2 className="text-3xl font-semibold text-gray-800 mb-6">

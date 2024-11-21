@@ -1,5 +1,5 @@
 import React from "react";
-
+import homeimage from "../images/Home.avif"
 function HomePage() {
   return (
     <div className="min-h-screen bg-slate-400 flex items-center justify-center">
@@ -27,7 +27,7 @@ function HomePage() {
         {/* Image Section */}
         <div className="md:w-1/2 flex justify-center">
           <img
-            src="../../Home.avif"
+            src={homeimage}
             alt="Designer"
             className="w-64 h-64 rounded-full object-cover"
           />
